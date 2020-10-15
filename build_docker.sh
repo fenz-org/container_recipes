@@ -6,7 +6,7 @@ SW_FLD=${SW_FLD%*,}
 SW_NAME=`echo ${SW_FLD%%-*} | sed 's/ *$//g'`
 DOCKER_SW_NAME=${SW_NAME,,}
 SW_TAG=${SW_FLD#*-}
-SW_INIT=${SW_NAME:0:1}
+SW_INIT=${DOCKER_SW_NAME:0:1}
 
 #docker build --tag ${DOCKER_USER}/${TRAVIS_REPO_SLUG##*/}: ./docker/${SW_INIT,}/${SW_NAME}/${SW_FLD}
 
