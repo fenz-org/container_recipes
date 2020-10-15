@@ -4,12 +4,12 @@
 SW_FLD=${TRAVIS_COMMIT_MESSAGE#Build docker:*}
 SW_FLD=${SW_FLD%*,}
 echo ${SW_FLD}
-SW_NAME=${SW_FLD%%-*}
+SW_NAME=`echo ${SW_FLD%%-*} | sed 's/ *$//g'`
 echo ${SW_NAME}
 SW_TAG=${SW_FLD#*-}
 echo ${SW_TAG}
 SW_INIT=${SW_NAME:0:1}
-echo "-{SW_INIT}-"
+echo "-${SW_INIT}-"
 
 #docker build --tag ${DOCKER_USER}/${TRAVIS_REPO_SLUG##*/}: ./docker/${SW_INIT,}/${SW_NAME}/${SW_FLD}
 
