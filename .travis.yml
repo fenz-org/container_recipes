@@ -17,6 +17,7 @@ env:
     - DOCKER_USER=reprova
     # DOCKER_PASS="..."
     - secure: "kmwvnIdptcE9dw6I99oNj8SztMMh/inUk1ew1YcJpPavWBw3Sm8GiN4Dq7KUC2kuD1zp5s3+HZYjRVXWfbHJqwSZRfjE0WufIGUeLBrHVtKNVeEkn2ZxSOBanpyolr5tg7YE3SCPY+EtWVA2ZF0xJ1MxV6dj9Ifinim7zVh4OkNJbFnt8xIw/UQuhbq1tU4wtPakTPRIUCzVvpsGoETxUZu1l0Y7WY03M61aeIGtkqJlQKybMuxp1iceQSRlZMOOOLMHJN4ZoeDWhtWqYx0hqnE3j8egfykwihCXDNqWVmdj8Mhm28Ss+6uilgVHM8RObrwc0zrGtkHjoAoYPgKW7S6MtJQoAEsXmsgpRwn9v/B+/3F0yGMOwHok6u/mu/W3IWc0MjFcjJpV43PXJ5LOcd4B9OLlqZhkGDLsM55KO6ukKahP4FBIBy+OJ+nu8TqgSq0aGkFes9tl8stTmGI5WWCgaEqMTE6rPlOQZ34t0qZcY40dZ6M6WdUkSYG6ZnGmra2haRgNEhQ41qFgj2msmUw/UngEijLccYewDCW257YzNJhJqsG8KItawlCaFAnM0QBaIMhKTfmu8nrKLHTcNVqRhNkBP3WhwCpTqPozukZXxLpM7rc8h9Ay4yambEZxcOpBpnVw9vznD4SN7iIzT3d1UGyTykXUNnOJSsibMoE="
+
 script:
   - if [ "${DOCKER_BUILD}" == "TRUE" ]; then . ./build_docker.sh; fi
   - if [ "${SINGULARITY_BUILD}" == "TRUE" ]; then . ./build_singularity.sh; fi
@@ -26,7 +27,6 @@ before_deploy:
 
 deploy:
   provider: script
-  script: 
-    - if [ "${DOCKER_BUILD}" == "TRUE" ]; then docker push ${IMAGE_TO_PUSH}; fi
+  script: if [ "${DOCKER_BUILD}" == "TRUE" ]; then docker push ${IMAGE_TO_PUSH}; fi
   on:
     branch: master
