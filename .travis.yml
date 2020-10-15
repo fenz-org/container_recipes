@@ -1,5 +1,5 @@
 if: |
-  commit_message =~ /^Build:/
+  commit_message =~ /^Build*:/
 
 os: linux
 
