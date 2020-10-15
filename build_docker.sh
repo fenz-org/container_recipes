@@ -1,7 +1,8 @@
 #!/bin/bash
 
-SW_FLD=`echo $TRAVIS_COMMIT_MESSAGE | sed 's@.*Build docker:\(.*\),.*@\1@'`
-
+#SW_FLD=`echo $TRAVIS_COMMIT_MESSAGE | sed 's@.*Build docker:\(.*\),.*@\1@'`
+SW_FLD=${TRAVIS_COMMIT_MESSAGE#Build docker:*}
+SW_FLD=${SW_FLD%*,}
 echo ${SW_FLD}
 SW_NAME=${SW_FLD%%-*}
 echo ${SW_NAME}
