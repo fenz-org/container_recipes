@@ -23,10 +23,19 @@ script:
   - if [ "${SINGULARITY_BUILD}" == "TRUE" ]; then . ./build_singularity.sh; fi
 
 before_deploy:
-  - if [ "${DOCKER_BUILD}" == "TRUE" ]; then docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"; fi
+  - echo ${DOCKER_BUILD}
 
 deploy:
   provider: script
-  script: if [ "${DOCKER_BUILD}" == "TRUE" ]; then docker push ${IMAGE_TO_PUSH}; fi
+  script: echo ${DOCKER_BUILD}
   on:
     branch: master
+
+#before_deploy:
+#  - if [ "${DOCKER_BUILD}" == "TRUE" ]; then docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"; fi
+#
+#deploy:
+#  provider: script
+#  script: if [ "${DOCKER_BUILD}" == "TRUE" ]; then docker push ${IMAGE_TO_PUSH}; fi
+#  on:
+#    branch: master
