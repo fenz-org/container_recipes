@@ -1,2 +1,2 @@
-FROM tensorflow:2.1.0
+FROM tensorflow/tensorflow:2.1.0
 
