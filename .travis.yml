@@ -12,6 +12,7 @@ services:
 
 env:
   global:
+    - DOCKER_BUILD_TEST=`[[ commit_message =~ /^Build docker:/ ]] && echo "TRUE"`
     - DOCKER_BUILD=`[[ $TRAVIS_COMMIT_MESSAGE == Build docker:* ]] && echo "TRUE"`
     - SINGULARITY_BUILD=`[[ $TRAVIS_COMMIT_MESSAGE == Build singularity:* ]] && echo "TRUE"`
     - DOCKER_USER=reprova
