@@ -23,7 +23,7 @@ script:
   - if [ "${SINGULARITY_BUILD}" == "TRUE" ]; then . ./build_singularity.sh; fi
 
 before_deploy:
-  - echo ${DOCKER_BUILD}
+  - if [ "${DOCKER_BUILD}" == "TRUE" ]; then docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"; fi
 
 deploy:
   provider: script
