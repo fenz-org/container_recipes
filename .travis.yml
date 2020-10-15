@@ -12,9 +12,8 @@ services:
 
 env:
   global:
-    - DOCKER_BUILD_TEST=`[[ commit_message =~ /^Build docker:/ ]] && echo "TRUE"`
-    - DOCKER_BUILD=`[[ $TRAVIS_COMMIT_MESSAGE == Build docker:* ]] && echo "TRUE"`
-    - SINGULARITY_BUILD=`[[ $TRAVIS_COMMIT_MESSAGE == Build singularity:* ]] && echo "TRUE"`
+    - DOCKER_BUILD=`[[ $TRAVIS_COMMIT_MESSAGE == "Build docker:"* ]] && echo "TRUE"`
+    - SINGULARITY_BUILD=`[[ $TRAVIS_COMMIT_MESSAGE == "Build singularity:"* ]] && echo "TRUE"`
     - DOCKER_USER=reprova
     # DOCKER_PASS="..."
     - secure: "g11riwLqhtfidpD92e4e9jRwK+owBUzzf9dmpwJ1o/5IOzRdtNQKWzGHqn0Xosk5XQI8ddrEqRVdJdFX2lLQ2IaQQEK4ZfMeji4kKLM7nJ0TZ7lnHVmTvl4JPZiXHsjdhNn1taOBA/Sv1bC1Nr8knj8vBjXXyeBRsRP6JlRHFzp5pQiUz6YGknvUa66g9N0L5f52h+2cXaLH0kBNf80j888dm4PJrmLEPDgx36nGXQ4OiVfuUlxyxMG6QPZ7tTHffYGDynmNOR3FIyEckEhiSG3dbCKR9BchUVB4pBQEoFWw592nKdo3X0kaGD/21CFy+hQFGb8YV2TfMv9zJvdcLvsuvejscIk7mduJGfGh4ylUcKaMtT/YGyxoKWUrdNdck0HAzT2HyypS8tj4DvoZx4Z0iw6rN15U4elbYxDSQZux4KGpzmX9q7hFjpOi4goAHEvX4kBKkVqV+fcoYoQyEgiRsCNeNMiKlTFDiqcqPz5R173Fpn7yibCU/XyACBec83kSrSMpesz/kTyYjJdHpzVq1VczGhg17ZYoYRch8jkSOGOhsGTmzGQgvvfrl2gfHavNuguo8BUcovWRqZkai/s4+Jy6qxIzvkwd4kpWKAKSFq6D2m0Z2TlvVYKFPyueffPUWEIgwgKTkCGkEOLE8GDyILbz7LGzxdN6ss6Tav8="
