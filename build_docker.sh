@@ -6,6 +6,7 @@ SW_FLD=${SW_FLD%*,}
 echo ${SW_FLD}
 SW_NAME=`echo ${SW_FLD%%-*} | sed 's/ *$//g'`
 echo ${SW_NAME}
+DOCKER_SW_NAME=${SW_NAME,,}
 SW_TAG=${SW_FLD#*-}
 echo ${SW_TAG}
 SW_INIT=${SW_NAME:0:1}
@@ -15,6 +16,6 @@ echo "-${SW_INIT}-"
 
 echo "Building Docker container for: ${SW_FLD}"
 echo "docker build --tag ${DOCKER_USER}/${SW_NAME}:${SW_TAG} ./docker/${SW_INIT,}/${SW_NAME}/${SW_TAG}"
-docker build --tag ${DOCKER_USER}/${SW_NAME}:${SW_TAG} ./docker/${SW_INIT,}/${SW_NAME}/${SW_TAG}
+docker build --tag ${DOCKER_USER}/${SW_NAME}:${SW_TAG} ./docker/${SW_INIT}/${SW_NAME}/${SW_TAG}
 
 export IMAGE_TO_PUSH="${DOCKER_USER}/${SW_NAME}:${SW_TAG}"
