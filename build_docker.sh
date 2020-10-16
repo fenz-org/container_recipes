@@ -15,4 +15,4 @@ echo "Building Docker container for: ${SW_FLD}"
 echo "docker build --tag ${DOCKER_USER}/${DOCKER_SW_NAME}:${SW_TAG} ./docker/${SW_INIT,}/${SW_NAME}/${SW_TAG}"
 docker build --tag ${DOCKER_USER}/${DOCKER_SW_NAME}:${SW_TAG} ./docker/${SW_INIT}/${SW_NAME}/${SW_TAG}
 
-export IMAGE_TO_PUSH="${DOCKER_USER}/${SW_NAME}:${SW_TAG}"
+export IMAGE_TO_PUSH="${DOCKER_USER}/${DOCKER_SW_NAME}:${SW_TAG}"
