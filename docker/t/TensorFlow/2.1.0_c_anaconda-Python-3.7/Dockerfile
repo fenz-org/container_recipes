@@ -16,6 +16,5 @@ RUN echo "conda ${CONDA_VERSION}" >> /opt/conda/conda-meta/pinned && \
         scipy=1.4.1 \
         tensorboard=2.1.0 \
         tensorflow=${TENSORFLOW_VERSION} && \
-    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate $CONDA_PROFILE" >> ~/.bashrc
